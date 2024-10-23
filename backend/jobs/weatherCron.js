@@ -1,6 +1,6 @@
 import cron from 'node-cron'
 import storeWeatherData from '../utils/storeWeatherData.js'
-
+import { checkWeatherAndNotify } from '../utils/notifyUsers.js';
 // Define coordinates for the Indian metro cities
 const cities = [
     { name: 'Delhi', lat: 28.6139, lon: 77.2090 },
@@ -14,7 +14,10 @@ const cities = [
 // Schedule a cron job to run every 2 minutes
 cron.schedule('*/2 * * * *', async () => {
     console.log('Cron job running every 2 minutes...');
+
+
     for (const city of cities) {
-        await storeWeatherData(city.lat, city.lon, city.name);
+        const weatherData = await storeWeatherData(city.lat, city.lon, city.name); // Fetch weather data for each city
+        await checkWeatherAndNotify(city.name, weatherData); // Check thresholds and send alerts
     }
 });

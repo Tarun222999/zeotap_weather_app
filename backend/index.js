@@ -13,6 +13,8 @@ import './jobs/weatherCron.js'
 import './jobs/weatherSummaryCron.js'
 
 
+import { addUser } from "./controllers/userController.js";
+import { weatherResult } from "./controllers/weatherController.js";
 const app = express();
 const server = http.createServer(app);
 
@@ -29,28 +31,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-app.get('/weather/:city', async (req, res) => {
-    const { city } = req.params;
+app.get('/weather/:city', weatherResult);
 
-    try {
-        // Fetch current weather data
-        const currentWeather = await Weather.findOne({ city }).sort({ dt: -1 });
-
-        // Fetch daily summary data
-        const today = new Date().toISOString().split('T')[0];
-        const dailySummary = await DailyWeatherSummary.findOne({ city, date: today });
-
-        res.status(200).json({
-            current: currentWeather,
-            dailySummary: dailySummary
-        });
-    } catch (error) {
-        res.status(500).send('Error fetching weather data');
-    }
-});
-
-
+app.post('/add-user', addUser);
 const port = process.env.PORT || 8000
-app.listen(port, () => {
+server.listen(port, () => {
     console.log('listening at 8000')
 })

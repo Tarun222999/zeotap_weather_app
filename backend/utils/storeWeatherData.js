@@ -22,12 +22,13 @@ const storeWeatherData = async (lat, lon, city) => {
 
         // Save the document to MongoDB
         await weatherDocument.save();
-
+        console.log(`Weather data for ${city} saved successfully!`);
         // Emit the new weather data to all connected clients
         const io = getIo(); // Get the initialized 'io' instance
-        io.emit('weatherUpdate', dailySummary); // Emit the event with the weather data
+        io.emit('weatherUpdate', weatherDocument); // Emit the event with the weather data
 
-        console.log(`Weather data for ${city} saved successfully!`);
+        return weatherDocument
+
     } catch (error) {
         console.error('Error storing weather data:', error);
     }

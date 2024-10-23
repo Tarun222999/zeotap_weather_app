@@ -32,7 +32,7 @@ const calculateDailySummary = async (city) => {
 
 
         // Calculate aggregates
-        const temperatures = weatherData.map(data => data.main.temp);
+        const temperatures = weatherData.map(data => data.main.temp_c);
         const conditions = weatherData.map(data => data.weather[0].main); // Get weather conditions
 
         const avg_temp = temperatures.reduce((acc, temp) => acc + temp, 0) / temperatures.length;

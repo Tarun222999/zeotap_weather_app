@@ -10,12 +10,14 @@ const weatherSchema = new mongoose.Schema({
         temp: Number,
         temp_c: Number,
         feels_like: Number,
+
     },
     weather: [
         {
             id: Number,
             main: String,
             description: String,
+            icon: String
         }
     ],
     dt: Number, // Unix timestamp
