@@ -7,9 +7,14 @@ Real-Time Data Processing System for
 ![diagram-export-10-23-2024-7_47_21-PM](https://github.com/user-attachments/assets/2816dde6-8389-4511-97ad-d8df698fbe8f)
 
 ##Visual Overview
+
+
 1.Weather Report Overview based on Selected City
+
 ![Screenshot 2024-10-23 191710](https://github.com/user-attachments/assets/719c2479-9947-44f8-b254-ec7a895fd856)
+
 2.Modal To add User Thresholds
+
 ![Screenshot 2024-10-23 191734](https://github.com/user-attachments/assets/ba5203a0-d15e-4b75-a553-d16fc9490dd5)
 
 
