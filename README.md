@@ -6,7 +6,7 @@ Real-Time Data Processing System for
 ## Architecure
 ![diagram-export-10-23-2024-7_47_21-PM](https://github.com/user-attachments/assets/2816dde6-8389-4511-97ad-d8df698fbe8f)
 
-##Visual Overview
+## Visual Overview
 
 
 1.Weather Report Overview based on Selected City
