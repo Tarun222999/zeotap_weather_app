@@ -11,8 +11,8 @@ const cities = [
     { name: 'Hyderabad', lat: 17.3850, lon: 78.4867 }
 ];
 
-// Schedule a cron job to run every 2 minutes
-cron.schedule('*/2 * * * *', async () => {
+// Schedule a cron job to run every 5 minutes
+cron.schedule('*/5 * * * *', async () => {
     console.log('Cron job running every 2 minutes...');
 
 
